@@ -26,8 +26,8 @@ class MainTabBarController: UITabBarController {
     
     private func setupItems() {
         let mainVC = MainViewController()
-        let infoVC = InfoViewController()
         let favoritesVC = FavoriteViewController()
+        let infoVC = InfoViewController()
         
         setViewControllers([mainVC, favoritesVC, infoVC], animated: true)
         
@@ -38,7 +38,7 @@ class MainTabBarController: UITabBarController {
         items[2].title = "Info"
         
         items[0].image = UIImage(systemName: "pencil.circle")
-        items[1].image = UIImage(systemName: "star.circle")
+        items[1].image = UIImage(systemName: "heart.circle")
         items[2].image = UIImage(systemName: "person.circle")
 
         //UITabBarItem.appearance().setTitleTextAttributes([.font : UIFont(name: "Roboto-Bold", size: 12) as Any], for: .normal)

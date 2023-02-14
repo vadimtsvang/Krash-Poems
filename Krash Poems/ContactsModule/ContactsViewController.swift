@@ -9,13 +9,6 @@ import UIKit
 
 class ContactsViewController: UIViewController {
     
-//    private let titleImageView: UIImageView = {
-//        let imageView = UIImageView()
-//        imageView.toAutoLayout()
-//        imageView.image = UIImage(named: "AK")
-//        return imageView
-//    }()
-    
     private lazy var dismissButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .gray
@@ -132,13 +125,7 @@ class ContactsViewController: UIViewController {
 extension ContactsViewController {
     
     private func setConstraints() {
-        
         NSLayoutConstraint.activate([
-            
-//            titleImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-//            titleImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-//            titleImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            
             dismissButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 125),
             dismissButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             dismissButton.heightAnchor.constraint(equalToConstant: 100),

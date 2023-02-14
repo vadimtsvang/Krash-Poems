@@ -1,19 +1,15 @@
 //
-//  MainCollectionView.swift
-//  KrashPoems
+//  FavoriteCollectionView.swift
+//  Krash Poems
 //
-//  Created by Vadim on 15.11.2022.
+//  Created by Vadim on 11.01.2023.
 //
 
 import UIKit
 
-protocol MainCollectionViewProtocol: AnyObject {
-    func goToDetails(index: Int)
-}
-
-class MainCollectionView: UICollectionView {
+class FavoriteCollectionView: UICollectionView {
     
-    private var poemArray = [DetailsModel]()
+    private var poems = [Poem]()
     
     weak var mainDelegate: MainCollectionViewProtocol?
     
@@ -23,65 +19,58 @@ class MainCollectionView: UICollectionView {
         super.init(frame: frame, collectionViewLayout: collectionLayot)
         
         configure()
-        setDelegates()
-        register(MainCollectionViewCell.self,
-                 forCellWithReuseIdentifier: MainCollectionViewCell.idMainCell)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func set(poems: [Poem]) {
+        self.poems = poems
+    }
+    
     private func configure() {
         collectionLayot.scrollDirection = .vertical
         backgroundColor = .none
-        bounces = false
-        //showsVerticalScrollIndicator = false
         toAutoLayout()
-    }
-    
-    private func setDelegates() {
+        
         dataSource = self
         delegate = self
-    }
-    
-    public func setPoemArray(_ array: [DetailsModel]) {
-        poemArray = array
+        register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.idMainCell)
     }
 }
 
 // MARK: - UICollectionViewDataSource
 
-extension MainCollectionView: UICollectionViewDataSource {
+extension FavoriteCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        poemArray.count
+        poems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.idMainCell, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
-        let detailModel = poemArray[indexPath.row]
-        cell.configure(model: detailModel)
+        let poem = poems[indexPath.row]
+        cell.configure(poem: poem)
         return cell
     }
 }
 
 //MARK: - UICollectionViewDelegate
 
-extension MainCollectionView: UICollectionViewDelegate {
+extension FavoriteCollectionView: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        mainDelegate?.goToDetails(index: indexPath.row)
+        mainDelegate?.goTo(poem: poems[indexPath.row])
     }
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
 
-extension MainCollectionView: UICollectionViewDelegateFlowLayout {
+extension FavoriteCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: collectionView.frame.width / 1.1,
                height: collectionView.frame.height / 10)
     }
 }
-

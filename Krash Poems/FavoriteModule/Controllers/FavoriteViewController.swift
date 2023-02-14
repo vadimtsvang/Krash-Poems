@@ -25,33 +25,38 @@ class FavoriteViewController: UIViewController {
         return label
     }()
     
-    private let mainCollectionView = MainCollectionView()
+    private let favoriteCollectionView = FavoriteCollectionView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setupViews()
         setConstraints()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setupViews() {
         view.backgroundColor = .white
-        view.addSubviews(titleImageView, titleLabel)
+        view.addSubviews(titleImageView, titleLabel, favoriteCollectionView)
     }
 }
 
 extension FavoriteViewController {
     
     private func setConstraints() {
-        
         NSLayoutConstraint.activate([
-            
             titleImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             titleImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             titleImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             
             titleLabel.topAnchor.constraint(equalTo: titleImageView.bottomAnchor, constant: 15),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            favoriteCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            favoriteCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            favoriteCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
 }

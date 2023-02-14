@@ -36,34 +36,28 @@ class DetailsViewController: UIViewController {
         return label
     }()
     
-    private var detailsModel = DetailsModel()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setConstraints()
-        
-        poemLabel.text = detailsModel.poemName
-        fullPoemLabel.text = detailsModel.fullPoem
+    }
+    
+    func set(poem: Poem) {
+        poemLabel.text = poem.poemName
+        fullPoemLabel.text = poem.fullPoem
     }
     
     private func setupViews() {
         view.backgroundColor = .white
         view.addSubviews(titleImageView, poemLabel, fullPoemLabel)
     }
-    
-    public func setDetailsModel(_ model: DetailsModel) {
-        detailsModel = model
-    }
 }
 
 extension DetailsViewController {
     
     private func setConstraints() {
-        
         NSLayoutConstraint.activate([
-            
             titleImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             titleImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             titleImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
@@ -78,4 +72,3 @@ extension DetailsViewController {
         ])
     }
 }
-

@@ -97,9 +97,7 @@ extension InfoViewController: UIViewControllerTransitioningDelegate {
 extension InfoViewController {
     
     private func setConstraints() {
-        
         NSLayoutConstraint.activate([
-            
             titleImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             titleImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             titleImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),

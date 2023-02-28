@@ -37,6 +37,12 @@ class FavoriteViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        favoriteCollectionView.set(poems: PoemsService.shared.likedPoems)
+        favoriteCollectionView.reloadData()
+    }
+    
     private func setupViews() {
         view.backgroundColor = .white
         view.addSubviews(titleImageView, titleLabel, favoriteCollectionView)
@@ -54,9 +60,16 @@ extension FavoriteViewController {
             titleLabel.topAnchor.constraint(equalTo: titleImageView.bottomAnchor, constant: 15),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            favoriteCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            favoriteCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            favoriteCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            favoriteCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            favoriteCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            favoriteCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            favoriteCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+}
+
+extension FavoriteViewController: FavoriteCollectionViewProtocol {
+    func deleteFavourite(tag: Int) {
+        
     }
 }

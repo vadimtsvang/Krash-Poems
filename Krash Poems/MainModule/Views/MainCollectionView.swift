@@ -9,6 +9,7 @@ import UIKit
 
 protocol MainCollectionViewProtocol: AnyObject {
     func goTo(poem: Poem)
+    func addFavourite(tag: Int)
 }
 
 class MainCollectionView: UICollectionView {
@@ -52,6 +53,9 @@ extension MainCollectionView: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.idMainCell, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         let poemModel = poems[indexPath.row]
         cell.configure(poem: poemModel)
+        cell.didTap = { [weak self] tag in
+            self?.mainDelegate?.addFavourite(tag: tag)
+        }
         return cell
     }
 }

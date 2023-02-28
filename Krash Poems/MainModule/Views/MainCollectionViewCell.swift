@@ -9,6 +9,8 @@ import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
     
+    var didTap: IntCompletion?
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = ""
@@ -65,24 +67,12 @@ class MainCollectionViewCell: UICollectionViewCell {
     func configure(poem: Poem) {
         nameLabel.text = poem.poemName
         poemLabel.text = poem.fullPoem
+        favoriteButton.tag = poem.tag
     }
     
     @objc private func didTapFavoriteButton() {
-//        let imageName = self.detailsModel.isFavorite == false ? "heart.circle.fill" : "heart.circle"
-//        UIView.animate(withDuration: 0.2) {
-//            self.favoriteButton.setImage(UIImage(systemName: imageName), for: .normal)
-//            //self.favoriteButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-//        } completion: { _ in
-//            guard var newViewModel = self.viewModel else { return }
-////
-//            UIView.animate(withDuration: 0.2) {
-//                self.favoriteButton.transform = .identity
-//            } completion: { _ in
-//                newViewModel.isFavorite.toggle()
-//                self.viewModel = newViewModel
-//                self.delegate?.wasLikedArticle(with: self.tag)
-//            }
-//        }
+        didTap?(favoriteButton.tag)
+        favoriteButton.setImage(UIImage(systemName: "heart.circle.fill"), for: .selected)
     }
 }
 

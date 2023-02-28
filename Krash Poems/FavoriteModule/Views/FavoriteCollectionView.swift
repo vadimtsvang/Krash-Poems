@@ -6,6 +6,10 @@
 //
 
 import UIKit
+//
+protocol FavoriteCollectionViewProtocol: AnyObject {
+    func deleteFavourite(tag: Int)
+}
 
 class FavoriteCollectionView: UICollectionView {
     
@@ -70,7 +74,6 @@ extension FavoriteCollectionView: UICollectionViewDelegate {
 extension FavoriteCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width / 1.1,
-               height: collectionView.frame.height / 10)
+        CGSize(width: collectionView.frame.width / 1.1, height: collectionView.frame.height / 10)
     }
 }

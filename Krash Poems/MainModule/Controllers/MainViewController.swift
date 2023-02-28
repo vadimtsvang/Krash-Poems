@@ -7,8 +7,6 @@
 
 import UIKit
 
-typealias PoemsCompletion = ((Poems?) -> Void)
-
 class MainViewController: UIViewController {
     
     private let titleImageView: UIImageView = {
@@ -37,6 +35,7 @@ class MainViewController: UIViewController {
         setConstraints()
         makeResponse { [weak self] poems in
             guard let poems = poems?.poems else { return }
+            PoemsService.shared.allPoems = poems
             self?.mainCollectionView.set(poems: poems)
             self?.mainCollectionView.reloadData()
         }
@@ -83,9 +82,19 @@ extension MainViewController {
 }
 
 extension MainViewController: MainCollectionViewProtocol {
+    
     func goTo(poem: Poem) {
         let detailsViewController = DetailsViewController()
         detailsViewController.set(poem: poem)
         present(detailsViewController, animated: true)
+    }
+    
+    func addFavourite(tag: Int) {
+        let likedPoems = PoemsService.shared.likedPoems
+        if let poem = likedPoems.first(where: { $0.tag == tag } ) {
+            PoemsService.shared.remove(tag: poem.tag)
+        } else {
+            PoemsService.shared.save(tag: tag)
+        }
     }
 }

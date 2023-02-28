@@ -20,7 +20,6 @@ class DetailsViewController: UIViewController {
         let label = UILabel()
         label.textColor = .black
         label.font = .boldSystemFont(ofSize: 24)
-        label.text = hand
         label.numberOfLines = 0
         label.toAutoLayout()
         return label
@@ -30,7 +29,6 @@ class DetailsViewController: UIViewController {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont(name: "Roboto-Medium", size: 18)
-        label.text = hand
         label.numberOfLines = 0
         label.toAutoLayout()
         return label

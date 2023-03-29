@@ -14,7 +14,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = UIFont(name: "Roboto-Bold", size: 16)
+        label.font = .montserratItalic18()
         label.toAutoLayout()
         return label
     }()
@@ -22,7 +22,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     private let poemLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = UIFont(name: "Roboto-Medium", size: 12)
+        label.font = .montserratItalic14()
         label.textColor = .lightGray
         label.toAutoLayout()
         return label
@@ -73,6 +73,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     @objc private func didTapFavoriteButton() {
         didTap?(favoriteButton.tag)
         favoriteButton.setImage(UIImage(systemName: "heart.circle.fill"), for: .selected)
+        //favoriteButton.reloadInputViews()
     }
 }
 

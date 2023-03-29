@@ -25,7 +25,7 @@ class ContactsViewController: UIViewController {
         let button = UIButton()
         button.tintColor = .darkGray
         button.setTitle("Instagram", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 30)
+        button.titleLabel?.font = .montserratBoldItalic22()
         button.addTarget(self, action: #selector(instButtonTapped), for: .touchUpInside)
         button.toAutoLayout()
         return button
@@ -35,7 +35,7 @@ class ContactsViewController: UIViewController {
         let button = UIButton()
         button.tintColor = .darkGray
         button.setTitle("Telegram", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 30)
+        button.titleLabel?.font = .montserratBoldItalic22()
         button.addTarget(self, action: #selector(teleButtonTapped), for: .touchUpInside)
         button.toAutoLayout()
         return button
@@ -45,7 +45,7 @@ class ContactsViewController: UIViewController {
         let button = UIButton()
         button.tintColor = .darkGray
         button.setTitle("WhatsApp", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 30)
+        button.titleLabel?.font = .montserratBoldItalic22()
         button.addTarget(self, action: #selector(whatButtonTapped), for: .touchUpInside)
         button.toAutoLayout()
         return button
@@ -55,7 +55,7 @@ class ContactsViewController: UIViewController {
         let button = UIButton()
         button.tintColor = .darkGray
         button.setTitle("VK", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 30)
+        button.titleLabel?.font = .montserratBoldItalic22()
         button.addTarget(self, action: #selector(vkButtonTapped), for: .touchUpInside)
         button.toAutoLayout()
         return button
@@ -65,7 +65,7 @@ class ContactsViewController: UIViewController {
         let button = UIButton()
         button.tintColor = .darkGray
         button.setTitle("Facebook", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 30)
+        button.titleLabel?.font = .montserratBoldItalic22()
         button.addTarget(self, action: #selector(fbButtonTapped), for: .touchUpInside)
         button.toAutoLayout()
         return button

@@ -20,7 +20,7 @@ class FavoriteViewController: UIViewController {
         let label = UILabel()
         label.textColor = .black
         label.text = "Избранное"
-        label.font = .boldSystemFont(ofSize: 30)
+        label.font = .montserratBoldItalic34()
         label.toAutoLayout()
         return label
     }()
@@ -44,6 +44,8 @@ class FavoriteViewController: UIViewController {
     }
     
     private func setupViews() {
+        favoriteCollectionView.favoriteDelegate = self
+        
         view.backgroundColor = .white
         view.addSubviews(titleImageView, titleLabel, favoriteCollectionView)
     }
@@ -69,7 +71,18 @@ extension FavoriteViewController {
 }
 
 extension FavoriteViewController: FavoriteCollectionViewProtocol {
+    func goTo(poem: Poem) {
+        let detailsViewController = DetailsViewController()
+        detailsViewController.set(poem: poem)
+        present(detailsViewController, animated: true)
+    }
+    
     func deleteFavourite(tag: Int) {
-        
+        let likedPoems = PoemsService.shared.likedPoems
+        if let poem = likedPoems.first(where: { $0.tag == tag } ) {
+            PoemsService.shared.remove(tag: poem.tag)
+        } else {
+            return
+        }
     }
 }

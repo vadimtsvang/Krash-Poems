@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
         label.textColor = .black
         label.text = "Стихи"
         label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 30)
+        label.font = .montserratBoldItalic34()
         label.toAutoLayout()
         return label
     }()

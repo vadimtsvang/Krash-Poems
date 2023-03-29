@@ -8,6 +8,7 @@
 import UIKit
 //
 protocol FavoriteCollectionViewProtocol: AnyObject {
+    func goTo(poem: Poem)
     func deleteFavourite(tag: Int)
 }
 
@@ -15,7 +16,7 @@ class FavoriteCollectionView: UICollectionView {
     
     private var poems = [Poem]()
     
-    weak var mainDelegate: MainCollectionViewProtocol?
+    weak var favoriteDelegate: FavoriteCollectionViewProtocol?
     
     private let collectionLayot = UICollectionViewFlowLayout()
     
@@ -54,8 +55,13 @@ extension FavoriteCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.idMainCell, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
-        let poem = poems[indexPath.row]
-        cell.configure(poem: poem)
+        let poemModel = poems[indexPath.row]
+        cell.configure(poem: poemModel)
+        cell.didTap = { [weak self] tag in
+            self?.favoriteDelegate?.deleteFavourite(tag: tag)
+        }
+//        let poem = poems[indexPath.row]
+//        cell.configure(poem: poem)
         return cell
     }
 }
@@ -65,7 +71,7 @@ extension FavoriteCollectionView: UICollectionViewDataSource {
 extension FavoriteCollectionView: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        mainDelegate?.goTo(poem: poems[indexPath.row])
+        favoriteDelegate?.goTo(poem: poems[indexPath.row])
     }
 }
 

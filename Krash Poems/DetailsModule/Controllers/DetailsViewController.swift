@@ -19,8 +19,9 @@ class DetailsViewController: UIViewController {
     private let poemLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = .boldSystemFont(ofSize: 24)
-        label.numberOfLines = 0
+        label.font = .montserratBoldItalic22()
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
         label.toAutoLayout()
         return label
     }()
@@ -28,7 +29,7 @@ class DetailsViewController: UIViewController {
     private let fullPoemLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont(name: "Roboto-Medium", size: 18)
+        label.font = .montserratItalic16()
         label.numberOfLines = 0
         label.toAutoLayout()
         return label
@@ -60,11 +61,11 @@ extension DetailsViewController {
             titleImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             titleImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             
-            poemLabel.topAnchor.constraint(equalTo: titleImageView.bottomAnchor, constant: 15),
+            poemLabel.topAnchor.constraint(equalTo: titleImageView.bottomAnchor, constant: 5),
             poemLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             poemLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             
-            fullPoemLabel.topAnchor.constraint(equalTo: poemLabel.bottomAnchor, constant: 5),
+            fullPoemLabel.topAnchor.constraint(equalTo: titleImageView.bottomAnchor, constant: 40),
             fullPoemLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             fullPoemLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         ])

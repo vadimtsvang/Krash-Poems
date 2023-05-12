@@ -39,7 +39,7 @@ class InfoViewController: UIViewController {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = .montserratItalic18()
+        label.font = .montserratItalic22()
         label.text = infoDescription
         label.numberOfLines = 0
         label.toAutoLayout()

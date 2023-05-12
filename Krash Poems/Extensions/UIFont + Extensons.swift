@@ -79,6 +79,10 @@ extension UIFont {
         return UIFont.init(name: "Montserrat-Italic", size: 18)
     }
     
+    static func montserratItalic22() -> UIFont? {
+        return UIFont.init(name: "Montserrat-Italic", size: 22)
+    }
+    
     //BoldItalic
     static func montserratBoldItalic16() -> UIFont? {
         return UIFont.init(name: "Montserrat-BoldItalic", size: 16)

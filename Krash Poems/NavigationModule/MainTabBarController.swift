@@ -27,18 +27,21 @@ class MainTabBarController: UITabBarController {
     private func setupItems() {
         let mainVC = MainViewController()
         let favoritesVC = FavoriteViewController()
+        let videoVC = VideoViewController(viewModel: VideoViewModel())
         let infoVC = InfoViewController()
         
-        setViewControllers([mainVC, favoritesVC, infoVC], animated: true)
+        setViewControllers([mainVC, favoritesVC, videoVC, infoVC], animated: true)
         
         guard let items = tabBar.items else { return }
         
         items[0].title = "Poems"
         items[1].title = "Favorites"
-        items[2].title = "Info"
+        items[2].title = "Video Poems"
+        items[3].title = "Info"
         
         items[0].image = UIImage(systemName: "pencil.circle")
         items[1].image = UIImage(systemName: "heart.circle")
-        items[2].image = UIImage(systemName: "person.circle")
+        items[2].image = UIImage(systemName: "video.circle")
+        items[3].image = UIImage(systemName: "person.circle")
     }
 }

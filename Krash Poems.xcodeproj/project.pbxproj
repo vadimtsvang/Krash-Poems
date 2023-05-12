@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0C29882A0D2E630081CC60 /* YoutubePlayer-in-WKWebView in Frameworks */ = {isa = PBXBuildFile; productRef = 1F0C29872A0D2E630081CC60 /* YoutubePlayer-in-WKWebView */; };
+		1F19ABCF2A0D351E0014AFD0 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F19ABCE2A0D351E0014AFD0 /* VideoViewController.swift */; };
+		1F19ABD12A0D35CD0014AFD0 /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F19ABD02A0D35CD0014AFD0 /* VideoViewModel.swift */; };
+		1F19ABD32A0D36570014AFD0 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F19ABD22A0D36570014AFD0 /* PlayerViewController.swift */; };
+		1F19ABDB2A0D38820014AFD0 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F19ABDA2A0D38820014AFD0 /* VideoTableViewCell.swift */; };
 		1F1C39E129994B7F003998C7 /* poems.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F1C39E029994B7F003998C7 /* poems.json */; };
 		1F1C39E3299BC337003998C7 /* PoemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C39E2299BC336003998C7 /* PoemsService.swift */; };
 		1F2F13F8296C475800D3807D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F13F7296C475800D3807D /* AppDelegate.swift */; };
@@ -35,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F19ABCE2A0D351E0014AFD0 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		1F19ABD02A0D35CD0014AFD0 /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
+		1F19ABD22A0D36570014AFD0 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		1F19ABDA2A0D38820014AFD0 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		1F1C39E029994B7F003998C7 /* poems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = poems.json; sourceTree = "<group>"; };
 		1F1C39E2299BC336003998C7 /* PoemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemsService.swift; sourceTree = "<group>"; };
 		1F2F13F4296C475800D3807D /* Krash Poems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Krash Poems.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,12 +78,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0C29882A0D2E630081CC60 /* YoutubePlayer-in-WKWebView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F19ABCD2A0D33040014AFD0 /* VideoModule */ = {
+			isa = PBXGroup;
+			children = (
+				1F19ABCE2A0D351E0014AFD0 /* VideoViewController.swift */,
+				1F19ABD02A0D35CD0014AFD0 /* VideoViewModel.swift */,
+				1F19ABD22A0D36570014AFD0 /* PlayerViewController.swift */,
+				1F19ABDA2A0D38820014AFD0 /* VideoTableViewCell.swift */,
+			);
+			path = VideoModule;
+			sourceTree = "<group>";
+		};
 		1F2F13EB296C475800D3807D = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +122,7 @@
 				1F2F140C296C47E500D3807D /* FavoriteModule */,
 				1F2F141E296C48B700D3807D /* InfoModule */,
 				1F2F1434296C5EBA00D3807D /* ContactsModule */,
+				1F19ABCD2A0D33040014AFD0 /* VideoModule */,
 				1F2F1437296C69C900D3807D /* Transitioning */,
 				1F2F1417296C488000D3807D /* Extensions */,
 				1F89062A29D33456007C3B18 /* Fonts */,
@@ -268,6 +290,9 @@
 			dependencies = (
 			);
 			name = "Krash Poems";
+			packageProductDependencies = (
+				1F0C29872A0D2E630081CC60 /* YoutubePlayer-in-WKWebView */,
+			);
 			productName = "Krash Poems";
 			productReference = 1F2F13F4296C475800D3807D /* Krash Poems.app */;
 			productType = "com.apple.product-type.application";
@@ -288,7 +313,7 @@
 				};
 			};
 			buildConfigurationList = 1F2F13EF296C475800D3807D /* Build configuration list for PBXProject "Krash Poems" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -296,6 +321,9 @@
 				Base,
 			);
 			mainGroup = 1F2F13EB296C475800D3807D;
+			packageReferences = (
+				1F0C29862A0D2E630081CC60 /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */,
+			);
 			productRefGroup = 1F2F13F5296C475800D3807D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -330,11 +358,15 @@
 			files = (
 				1F2F141C296C489200D3807D /* UIView + Extensions.swift in Sources */,
 				1F2F1430296C496C00D3807D /* MainViewController.swift in Sources */,
+				1F19ABDB2A0D38820014AFD0 /* VideoTableViewCell.swift in Sources */,
+				1F19ABCF2A0D351E0014AFD0 /* VideoViewController.swift in Sources */,
 				1F2F1425296C490100D3807D /* Poems.swift in Sources */,
 				1F2F1439296C69F300D3807D /* CircularTransition.swift in Sources */,
 				1F2F13F8296C475800D3807D /* AppDelegate.swift in Sources */,
 				1F2F142C296C495200D3807D /* MainCollectionView.swift in Sources */,
+				1F19ABD12A0D35CD0014AFD0 /* VideoViewModel.swift in Sources */,
 				1F2F1410296C480F00D3807D /* FavoriteViewController.swift in Sources */,
+				1F19ABD32A0D36570014AFD0 /* PlayerViewController.swift in Sources */,
 				1F2F142D296C495200D3807D /* MainCollectionViewCell.swift in Sources */,
 				1F89062329D33080007C3B18 /* UIFont + Extensons.swift in Sources */,
 				1F2F143B296F101100D3807D /* FavoriteCollectionView.swift in Sources */,
@@ -497,9 +529,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.vadimtsvang.Krash-Poems";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -524,9 +559,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.vadimtsvang.Krash-Poems";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -552,6 +590,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F0C29862A0D2E630081CC60 /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmhv/YoutubePlayer-in-WKWebView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F0C29872A0D2E630081CC60 /* YoutubePlayer-in-WKWebView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F0C29862A0D2E630081CC60 /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */;
+			productName = "YoutubePlayer-in-WKWebView";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F2F13EC296C475800D3807D /* Project object */;
 }

@@ -67,10 +67,10 @@ class PlayerViewController: UIViewController {
             player.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             player.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             player.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            //player.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2),
+            player.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2),
 
             dismissButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            dismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            dismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
 }

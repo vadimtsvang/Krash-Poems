@@ -34,10 +34,10 @@ class MainTabBarController: UITabBarController {
         
         guard let items = tabBar.items else { return }
         
-        items[0].title = "Poems"
-        items[1].title = "Favorites"
-        items[2].title = "Video Poems"
-        items[3].title = "Info"
+        items[0].title = "Стихи"
+        items[1].title = "Избранное"
+        items[2].title = "Видео Стихи"
+        items[3].title = "Инфо"
         
         items[0].image = UIImage(systemName: "pencil.circle")
         items[1].image = UIImage(systemName: "heart.circle")

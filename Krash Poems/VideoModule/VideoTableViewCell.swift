@@ -33,11 +33,11 @@ class VideoTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
-    func configVideo(name: String, url: String) {
+    func configureVideo(name: String, url: String) {
         self.name = name
         self.url = url
     }
@@ -53,7 +53,7 @@ extension VideoTableViewCell {
         NSLayoutConstraint.activate([
             titleVideo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             titleVideo.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            titleVideo.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            titleVideo.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10)
         ])
     }
 }

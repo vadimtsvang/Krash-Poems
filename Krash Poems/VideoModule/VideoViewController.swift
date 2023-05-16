@@ -9,11 +9,11 @@ import UIKit
 
 class VideoViewController: UIViewController {
     
-    //private let coordinator: VideoCoordinator?
-    private var viewModel: VideoViewModel? = nil
+    private let viewModel: VideoViewModel?
     
     lazy var videoTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
+        table.toAutoLayout()
         return table
     }()
     
@@ -28,13 +28,14 @@ class VideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        view.addSubview(videoTableView)
+        setConstraints()
+        
         videoTableView.delegate = self
         videoTableView.dataSource = self
         videoTableView.register(VideoTableViewCell.self,
                                 forCellReuseIdentifier: String(describing: VideoTableViewCell.self))
-        view.addSubview(videoTableView)
-        setConstraints()
-
     }
 }
 
@@ -42,9 +43,9 @@ extension VideoViewController {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            videoTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            videoTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            videoTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            videoTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            videoTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            videoTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             videoTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
@@ -62,7 +63,7 @@ extension VideoViewController: UITableViewDataSource {
         let cell = videoTableView.dequeueReusableCell(withIdentifier: String(describing: VideoTableViewCell.self), for: indexPath) as? VideoTableViewCell
         guard cell != nil,
               let viewModel = viewModel?.videoArray else { return UITableViewCell() }
-        cell?.configVideo(name: viewModel[indexPath.row].title, url: viewModel[indexPath.row].url)
+        cell?.configureVideo(name: viewModel[indexPath.row].title, url: viewModel[indexPath.row].url)
         return cell!
     }
 }
@@ -70,8 +71,7 @@ extension VideoViewController: UITableViewDataSource {
 extension VideoViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-
-        return "My Video"
+        return "Видео Стихи"
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -82,6 +82,6 @@ extension VideoViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 40
     }
 }
